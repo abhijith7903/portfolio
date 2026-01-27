@@ -3,33 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>My Portfolio</title>
+  <title>Abhijith S | Portfolio</title>
   <style>
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #0d0d0d;
       color: #ffffff;
+      scroll-behavior: smooth;
     }
 
     header {
       background: #111;
       text-align: center;
-      padding: 40px 20px;
+      padding: 60px 20px;
       border-bottom: 1px solid #333;
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 3.5em;
+      margin-bottom: 10px;
       color: #0ff;
       text-shadow: 0 0 8px #0ff;
+    }
+
+    .subtitle {
+      font-size: 1.2em;
+      color: #bbb;
+      margin-bottom: 20px;
     }
 
     h2 {
       color: #0ff;
       border-left: 5px solid #0ff;
-      padding-left: 10px;
-      margin-top: 40px;
+      padding-left: 15px;
+      margin-top: 50px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
 
     .section {
@@ -39,7 +49,8 @@
     }
 
     p, li {
-      line-height: 1.7;
+      line-height: 1.8;
+      color: #ccc;
     }
 
     ul {
@@ -49,66 +60,104 @@
 
     li::before {
       content: '⚡';
-      margin-right: 8px;
+      margin-right: 10px;
       color: #0ff;
     }
 
     .project-gallery {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
       margin-top: 20px;
     }
 
     .project-card {
-      border: 1px solid #0ff;
-      padding: 15px;
-      border-radius: 10px;
-      background-color: #1a1a1a;
-      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid #333;
+      padding: 20px;
+      border-radius: 12px;
+      background-color: #161616;
+      transition: all 0.3s ease;
     }
 
     .project-card:hover {
-      transform: scale(1.03);
-      box-shadow: 0 0 15px #0ff;
+      transform: translateY(-5px);
+      border-color: #0ff;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+
+    .project-card h3 {
+      color: #0ff;
+      margin-top: 0;
+    }
+
+    .tech-stack {
+      font-size: 0.85em;
+      color: #0ff;
+      margin-top: 10px;
+      font-family: monospace;
+    }
+
+    .contact-links a {
+      color: #0ff;
+      text-decoration: none;
+      margin: 0 10px;
+      border: 1px solid #0ff;
+      padding: 5px 15px;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .contact-links a:hover {
+      background: #0ff;
+      color: #000;
     }
 
     .resume-btn {
       display: inline-block;
-      margin: 20px 0;
-      padding: 10px 20px;
-      color: #0ff;
-      border: 1px solid #0ff;
+      margin-top: 30px;
+      padding: 12px 30px;
+      color: #000;
+      background-color: #0ff;
       border-radius: 8px;
       text-decoration: none;
       font-weight: bold;
-      transition: background 0.3s;
+      box-shadow: 0 0 10px #0ff;
+      transition: 0.3s;
     }
 
     .resume-btn:hover {
-      background-color: #0ff;
-      color: #000;
+      box-shadow: 0 0 25px #0ff;
+      transform: scale(1.05);
+    }
+
+    .skills-container {
+      margin-top: 20px;
     }
 
     .skills-bar {
-      background: #333;
-      border-radius: 10px;
-      margin: 10px 0;
+      background: #222;
+      border-radius: 20px;
+      margin: 15px 0;
+      height: 25px;
       overflow: hidden;
     }
 
     .skills-bar-fill {
-      background: #0ff;
+      background: linear-gradient(90deg, #008080, #0ff);
+      height: 100%;
       color: #000;
-      padding: 5px 10px;
+      padding-left: 15px;
+      font-size: 0.9em;
       font-weight: bold;
+      display: flex;
+      align-items: center;
       width: 0;
-      animation: fillBar 2s forwards;
+      animation: fillBar 2.5s forwards ease-in-out;
     }
 
     @keyframes fillBar {
       from { width: 0; }
-      to { width: 100%; }
+      to { width: var(--target-width); }
     }
 
     .neon-glow {
@@ -116,104 +165,88 @@
     }
 
     @keyframes glow {
-      from {
-        text-shadow: 0 0 10px #0ff, 0 0 20px #0ff;
-      }
-      to {
-        text-shadow: 0 0 20px #00f6ff, 0 0 40px #00f6ff;
-      }
+      from { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+      to { text-shadow: 0 0 15px #00f6ff, 0 0 30px #00f6ff; }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1 class="neon-glow">Abhijith.S</h1>
-    <p>Frontend Developer | C, C++, Java,HTML,CSS</p>
-   <p>
-      <a href="https://www.linkedin.com/in/abhijiths7903/" target="_blank">Connect on LinkedIn</a>
-   </p>
+    <h1 class="neon-glow">Abhijith S</h1>
+    <p class="subtitle">Computer Science Engineering Graduate | Software Developer</p>
+    <div class="contact-links">
+      <a href="mailto:abhijithssivan2003@gmail.com">Email</a>
+      <a href="https://www.linkedin.com/in/abhijiths7903/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/abhijith7903" target="_blank">GitHub</a>
+    </div>
   </header>
 
   <div class="section">
     <h2>About Me</h2>
-    <p>I am a passionate Computer Science graduate skilled in full-stack web development using HTML, CSS, PHP, and MySQL. I’ve worked on real-world projects like an Hospital Pre Booking System and a Global Native Connect System. I also have basic knowledge in C, C++, OOP with Java, and Python.</p>
+    <p>
+      I am a dedicated Computer Science & Engineering graduate from Nehru College of Engineering and Research Centre. 
+      I specialize in building scalable web-based applications and have a strong foundation in 
+      <strong>Data Structures, Algorithms, and OOP</strong>. 
+      I am passionate about solving complex problems and contributing to innovative software solutions.
+    </p>
   </div>
 
   <div class="section">
-    <h2>Projects</h2>
+    <h2>Core Projects</h2>
     <div class="project-gallery">
       <div class="project-card">
-        <h3>Hospital Pre Booking System(Group)</h3>
-        <p> Built Hospital Pre-Booking and Management System, with PHP, Java, HTML, CSS and MySQL using XAMPP
-            software & Visual Studio Code.</p>
-       <p>This project is published in the journal: International Journal of Scientific Research in Engineering and
-          Management (IJSREM)on Volume 08 Issue 07 July,2024</p>
+        <h3>Global Native Connect</h3>
+        <p>A web-based platform enabling global interaction through native language support. Optimized backend interactions for better data handling.</p>
+        <p><em>Published in IJSREM, Vol. 09, March 2025</em></p>
+        <div class="tech-stack">PHP, JS, MySQL, XAMPP</div>
       </div>
+      
       <div class="project-card">
-        <h3> Global Native Connect (Group)</h3>
-        <p>Built Global Native Connect, with PHP, Java, HTML, CSS and MySQL using XAMPP software & Visual Studio Code</p>
-        <p> This project is published in the journal: International Journal of Scientific Research in Engineering and
-            Management (IJSREM)on Volume 09 Issue 03 March, 2025.</p>
+        <h3>Hospital Pre-Booking System</h3>
+        <p>Streamlined appointment scheduling and patient data management, significantly reducing manual administrative workloads.</p>
+        <p><em>Published in IJSREM, Vol. 08, July 2024</em></p>
+        <div class="tech-stack">PHP, HTML/CSS, MySQL, CRUD Operations</div>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <h2>Technical Skills</h2>
-    <ul>
-      <li>HTML, CSS, MySQL</li>
-      <li>C, C++, Java (OOP), AI Prompting</li>
-    </ul>
-    <div class="skills-bar"><div class="skills-bar-fill" style="width: 90%;">HTML/CSS - 90%</div></div>
-    <div class="skills-bar"><div class="skills-bar-fill" style="width: 75%;">Java & OOP - 75%</div></div>
-    <div class="skills-bar"><div class="skills-bar-fill" style="width: 60%;">C Programming - 60%</div></div>
+    <h2>Technical Expertise</h2>
+    <div class="skills-container">
+      <div class="skills-bar"><div class="skills-bar-fill" style="--target-width: 90%;">Web Technologies (HTML/CSS/JS/PHP)</div></div>
+      <div class="skills-bar"><div class="skills-bar-fill" style="--target-width: 85%;">Programming (C, C++, Java, Python)</div></div>
+      <div class="skills-bar"><div class="skills-bar-fill" style="--target-width: 80%;">Database Management (SQL/MySQL)</div></div>
+      <div class="skills-bar"><div class="skills-bar-fill" style="--target-width: 75%;">Tools (Git, VS Code, REST APIs)</div></div>
+    </div>
   </div>
 
   <div class="section">
-    <h2>Certificates</h2>
+    <h2>Certifications</h2>
     <ul>
-      <li>Cyber Security & Ethical Hacking Internship</li>
-      <li>Investing and Trading in Crypto - Workshop</li>
-      <li>Web Development with AI and AWS – IEDC Workshop</li>
-      <li>AI Outreach Workshop – Technex’23 IIT Varanasi (by Innovians Technology)</li>
-      <li>Member of NSS & IEEE.</li>
+      <li>Artificial Intelligence & Machine Learning - IIT Varanasi</li>
+      <li>Cyber Security and Ethical Hacking - Techmaghi, Kochi</li>
+      <li>Web Development with AI & AWS - IEDC NCERC</li>
+      <li>Data Science & Artificial Intelligence - Avodha Institute</li>
     </ul>
   </div>
 
-  <div class="section">
-    <h2>Soft Skills</h2>
-    <ul>
-      <li>Leadership & Teamwork</li>
-      <li>Effective Communication</li>
-      <li>Problem-Solving</li>
-      <li>Adaptability & Quick Learner</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Languages Known</h2>
-    <ul>
-      <li>Malayalam – Native (Read, Write, Speak)</li>
-      <li>English – Professional Proficiency</li>
-      <li>Hindi – Professional Proficiency</li>
-      <li>Tamil – Basic Understanding & Speaking</li>
-    </ul>
-  </div>
-
-  <div class="section">
-    <h2>Resume</h2>
-    <a href="https://abhijith7903.github.io/portfolio//Abhijith S_Resume.pdf" class="resume-btn" target="_blank" rel="noopener noreferrer">View Resume</a>
+  <div class="section" style="text-align: center; padding-bottom: 60px;">
+    <h2>Let's Connect</h2>
+    <p>Based in Palakkad, Kerala | Open to Entry-Level Software Engineering Roles</p>
+    <a href="https://abhijith7903.github.io/portfolio/Abhijith S_Resume.pdf" class="resume-btn" target="_blank">Download Full Resume</a>
   </div>
 
   <script>
+    // Subtle color shifting for the name
     const title = document.querySelector('h1');
-    const colors = ['#0ff', '#0f0', '#f0f', '#ff0'];
+    const colors = ['#0ff', '#00ffaa', '#00ccff'];
+    let i = 0;
     setInterval(() => {
-      const random = Math.floor(Math.random() * colors.length);
-      title.style.color = colors[random];
-      title.style.textShadow = `0 0 10px ${colors[random]}, 0 0 20px ${colors[random]}`;
-    }, 2000);
+      title.style.color = colors[i];
+      title.style.textShadow = `0 0 10px ${colors[i]}`;
+      i = (i + 1) % colors.length;
+    }, 3000);
   </script>
 </body>
 </html>

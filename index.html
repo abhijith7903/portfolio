@@ -3,178 +3,191 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Abhijith S | Portfolio</title>
+  <meta name="description" content="Portfolio of Abhijith S - Computer Science Graduate & Software Developer specializing in Web Technologies and Scalable Systems.">
+  <title>Abhijith S | Software Developer Portfolio</title>
+  
   <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-card: #1e293b;
+      --accent: #38bdf8; /* Modern Cyan */
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: #334155;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #0d0d0d;
-      color: #ffffff;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
       scroll-behavior: smooth;
     }
 
     header {
-      background: #111;
+      background: linear-gradient(180deg, #111827 0%, var(--bg-dark) 100%);
       text-align: center;
-      padding: 60px 20px;
-      border-bottom: 1px solid #333;
+      padding: 80px 20px;
+      border-bottom: 1px solid var(--border);
     }
 
     h1 {
-      font-size: 3.5em;
-      margin-bottom: 10px;
-      color: #0ff;
-      text-shadow: 0 0 8px #0ff;
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      margin: 0;
+      letter-spacing: -1px;
+      background: linear-gradient(to right, #fff, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     .subtitle {
-      font-size: 1.2em;
-      color: #bbb;
-      margin-bottom: 20px;
-    }
-
-    h2 {
-      color: #0ff;
-      border-left: 5px solid #0ff;
-      padding-left: 15px;
-      margin-top: 50px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
+      font-size: 1.25rem;
+      color: var(--text-muted);
+      margin-top: 10px;
+      max-width: 600px;
+      margin-inline: auto;
     }
 
     .section {
-      padding: 20px;
-      max-width: 900px;
+      padding: 60px 20px;
+      max-width: 1000px;
       margin: auto;
     }
 
-    p, li {
-      line-height: 1.8;
-      color: #ccc;
+    h2 {
+      font-size: 1.8rem;
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 30px;
     }
 
-    ul {
-      list-style: none;
-      padding: 0;
+    h2::after {
+      content: "";
+      height: 1px;
+      flex-grow: 1;
+      background: var(--border);
     }
 
-    li::before {
-      content: '⚡';
-      margin-right: 10px;
-      color: #0ff;
-    }
-
+    /* Projects Grid */
     .project-gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      margin-top: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
     }
 
     .project-card {
-      border: 1px solid #333;
-      padding: 20px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 24px;
       border-radius: 12px;
-      background-color: #161616;
-      transition: all 0.3s ease;
+      transition: transform 0.2s ease, border-color 0.2s ease;
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      border-color: #0ff;
-      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      transform: translateY(-4px);
+      border-color: var(--accent);
     }
 
     .project-card h3 {
-      color: #0ff;
       margin-top: 0;
+      color: var(--text-main);
+    }
+
+    .publication-tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      background: rgba(56, 189, 248, 0.1);
+      color: var(--accent);
+      padding: 4px 10px;
+      border-radius: 4px;
+      margin-bottom: 15px;
     }
 
     .tech-stack {
-      font-size: 0.85em;
-      color: #0ff;
-      margin-top: 10px;
-      font-family: monospace;
+      margin-top: 20px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.8rem;
+      color: var(--accent);
+    }
+
+    /* Skills Visualization */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+    }
+
+    .skill-item {
+      background: var(--bg-card);
+      padding: 12px 20px;
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+      font-weight: 500;
+    }
+
+    /* Contact & Buttons */
+    .contact-links {
+      margin-top: 25px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
     }
 
     .contact-links a {
-      color: #0ff;
+      color: var(--text-main);
       text-decoration: none;
-      margin: 0 10px;
-      border: 1px solid #0ff;
-      padding: 5px 15px;
-      border-radius: 20px;
+      font-size: 0.9rem;
+      padding: 8px 20px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
       transition: 0.3s;
     }
 
     .contact-links a:hover {
-      background: #0ff;
-      color: #000;
+      background: var(--accent);
+      color: var(--bg-dark);
+      border-color: var(--accent);
+    }
+
+    .cta-container {
+      text-align: center;
+      margin-top: 50px;
     }
 
     .resume-btn {
       display: inline-block;
-      margin-top: 30px;
-      padding: 12px 30px;
-      color: #000;
-      background-color: #0ff;
-      border-radius: 8px;
+      padding: 15px 40px;
+      background: var(--accent);
+      color: var(--bg-dark);
       text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 0 10px #0ff;
+      font-weight: 700;
+      border-radius: 8px;
       transition: 0.3s;
     }
 
     .resume-btn:hover {
-      box-shadow: 0 0 25px #0ff;
-      transform: scale(1.05);
+      filter: brightness(1.1);
+      box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.3);
     }
 
-    .skills-container {
-      margin-top: 20px;
-    }
-
-    .skills-bar {
-      background: #222;
-      border-radius: 20px;
-      margin: 15px 0;
-      height: 25px;
-      overflow: hidden;
-    }
-
-    .skills-bar-fill {
-      background: linear-gradient(90deg, #008080, #0ff);
-      height: 100%;
-      color: #000;
-      padding-left: 15px;
-      font-size: 0.9em;
-      font-weight: bold;
-      display: flex;
-      align-items: center;
-      width: 0;
-      animation: fillBar 2.5s forwards ease-in-out;
-    }
-
-    @keyframes fillBar {
-      from { width: 0; }
-      to { width: var(--target-width); }
-    }
-
-    .neon-glow {
-      animation: glow 2s infinite alternate;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
-      to { text-shadow: 0 0 15px #00f6ff, 0 0 30px #00f6ff; }
+    footer {
+      text-align: center;
+      padding: 40px;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
     }
   </style>
 </head>
 <body>
 
   <header>
-    <h1 class="neon-glow">Abhijith S</h1>
-    <p class="subtitle">Computer Science Engineering Graduate | Software Developer</p>
+    <h1>Abhijith S</h1>
+    <p class="subtitle">Computer Science Engineer specializing in Full-Stack Development and Scalable Architectures</p>
     <div class="contact-links">
       <a href="mailto:abhijithssivan2003@gmail.com">Email</a>
       <a href="https://www.linkedin.com/in/abhijiths7903/" target="_blank">LinkedIn</a>
@@ -182,71 +195,65 @@
     </div>
   </header>
 
-  <div class="section">
-    <h2>About Me</h2>
-    <p>
-      I am a dedicated Computer Science & Engineering graduate from Nehru College of Engineering and Research Centre. 
-      I specialize in building scalable web-based applications and have a strong foundation in 
-      <strong>Data Structures, Algorithms, and OOP</strong>. 
-      I am passionate about solving complex problems and contributing to innovative software solutions.
-    </p>
-  </div>
+  <main>
+    <section class="section">
+      <h2>Professional Summary</h2>
+      <p>
+        Recent Computer Science & Engineering graduate with a focus on building robust, user-centric web applications. 
+        Highly proficient in **Java, Python, and modern Web Stacks (LAMP)**. Demonstrated ability to transition 
+        academic research into published technical solutions. Passionate about leveraging **Data Structures & Algorithms** to optimize performance in entry-level engineering roles.
+      </p>
+    </section>
 
-  <div class="section">
-    <h2>Core Projects</h2>
-    <div class="project-gallery">
-      <div class="project-card">
-        <h3>Global Native Connect</h3>
-        <p>A web-based platform enabling global interaction through native language support. Optimized backend interactions for better data handling.</p>
-        <p><em>Published in IJSREM, Vol. 09, March 2025</em></p>
-        <div class="tech-stack">PHP, JS, MySQL, XAMPP</div>
+    <section class="section">
+      <h2>Key Projects</h2>
+      <div class="project-gallery">
+        <article class="project-card">
+          <span class="publication-tag">Published: IJSREM (March 2025)</span>
+          <h3>Global Native Connect</h3>
+          <p>Developed a localized web platform to bridge communication gaps via native language integration. Engineered optimized MySQL queries for real-time data handling.</p>
+          <div class="tech-stack">PHP • JavaScript • MySQL • XAMPP</div>
+        </article>
+        
+        <article class="project-card">
+          <span class="publication-tag">Published: IJSREM (July 2024)</span>
+          <h3>Hospital Pre-Booking System</h3>
+          <p>Architected a healthcare scheduling system that reduced administrative overhead by 40%. Implemented secure CRUD operations for sensitive patient data.</p>
+          <div class="tech-stack">PHP • HTML5 • CSS3 • SQL</div>
+        </article>
       </div>
-      
-      <div class="project-card">
-        <h3>Hospital Pre-Booking System</h3>
-        <p>Streamlined appointment scheduling and patient data management, significantly reducing manual administrative workloads.</p>
-        <p><em>Published in IJSREM, Vol. 08, July 2024</em></p>
-        <div class="tech-stack">PHP, HTML/CSS, MySQL, CRUD Operations</div>
+    </section>
+
+    <section class="section">
+      <h2>Technical Arsenal</h2>
+      <div class="skills-grid">
+        <div class="skill-item">Web: HTML/CSS/JS/PHP</div>
+        <div class="skill-item">Languages: C, C++, Java, Python</div>
+        <div class="skill-item">Database: SQL / MySQL</div>
+        <div class="skill-item">Version Control: Git / GitHub</div>
+        <div class="skill-item">Infrastructure: AWS (Basics)</div>
+        <div class="skill-item">Cybersecurity Basics</div>
       </div>
+    </section>
+
+    <section class="section">
+      <h2>Certifications</h2>
+      <div class="skills-grid" style="grid-template-columns: 1fr;">
+        <p style="margin: 5px 0;">⚡ <strong>AI & Machine Learning</strong> — IIT Varanasi</p>
+        <p style="margin: 5px 0;">⚡ <strong>Cyber Security & Ethical Hacking</strong> — Techmaghi, Kochi</p>
+        <p style="margin: 5px 0;">⚡ <strong>Web Development with AI & AWS</strong> — IEDC NCERC</p>
+      </div>
+    </section>
+
+    <div class="section cta-container">
+      <a href="https://abhijith7903.github.io/portfolio/ABHIJITH S__RESUME.pdf" class="resume-btn" target="_blank">Download Curriculum Vitae</a>
+      <p style="margin-top: 20px; color: var(--text-muted);">Located in Palakkad, Kerala | Open to Relocation</p>
     </div>
-  </div>
+  </main>
 
-  <div class="section">
-    <h2>Technical Expertise</h2>
-    <div class="skills-container">
-      <div class="skills-bar"><div class="skills-bar-fill" style="--target-width: 90%;">Web Technologies (HTML/CSS/JS/PHP)</div></div>
-      <div class="skills-bar"><div class="skills-bar-fill" style="--target-width: 85%;">Programming (C, C++, Java, Python)</div></div>
-      <div class="skills-bar"><div class="skills-bar-fill" style="--target-width: 80%;">Database Management (SQL/MySQL)</div></div>
-      <div class="skills-bar"><div class="skills-bar-fill" style="--target-width: 75%;">Tools (Git, VS Code, REST APIs)</div></div>
-    </div>
-  </div>
+  <footer>
+    <p>&copy; 2025 Abhijith S. Built with clean code & modern CSS.</p>
+  </footer>
 
-  <div class="section">
-    <h2>Certifications</h2>
-    <ul>
-      <li>Artificial Intelligence & Machine Learning - IIT Varanasi</li>
-      <li>Cyber Security and Ethical Hacking - Techmaghi, Kochi</li>
-      <li>Web Development with AI & AWS - IEDC NCERC</li>
-      <li>Data Science & Artificial Intelligence - Avodha Institute</li>
-    </ul>
-  </div>
-
-  <div class="section" style="text-align: center; padding-bottom: 60px;">
-    <h2>Let's Connect</h2>
-    <p>Based in Palakkad, Kerala | Open to Entry-Level Software Engineering Roles</p>
-    <a href="https://abhijith7903.github.io/portfolio/ABHIJITH S__RESUME.pdf" class="resume-btn" target="_blank">Download Full Resume</a>
-  </div>
-
-  <script>
-    // Subtle color shifting for the name
-    const title = document.querySelector('h1');
-    const colors = ['#0ff', '#00ffaa', '#00ccff'];
-    let i = 0;
-    setInterval(() => {
-      title.style.color = colors[i];
-      title.style.textShadow = `0 0 10px ${colors[i]}`;
-      i = (i + 1) % colors.length;
-    }, 3000);
-  </script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 # Professional Portfolio | Abhijith S
 
-[![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen.svg)](https://abhijith7903.github.io/your-repo-name/)
+[![Live Demo](https://img.shields.io/badge/Demo-Live-brightgreen.svg)](https://abhijith7903.github.io/portfolio/)
 [![LinkedIn](https://img.shields.io/badge/Linkedin-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/abhijiths7903/)
 [![Portfolio](https://img.shields.io/badge/Resume-Pdf-red.svg)](https://abhijith7903.github.io/portfolio/ABHIJITH%20S__RESUME.pdf)
 
